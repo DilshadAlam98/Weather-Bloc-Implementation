@@ -88,27 +88,78 @@ class _HomeScreenState extends State<HomeScreen> {
                     }
                     if (state is WeatherFetched) {
                       final weather = state.weather;
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      return ListView(
+                        // mainAxisAlignment: MainAxisAlignment.start,
+                        // crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            weather.areaName ?? "",
-                            style: const TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
+                          Align(
+                            alignment: Alignment.topRight,
+                            child: Text(
+                              "${weather.areaName}" ?? "",
+                              style: const TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
-                          const Text(
-                            "Good Morning",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
+                          const SizedBox(height: 10),
+                          RichText(
+                            text: const TextSpan(
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                                fontStyle: FontStyle.italic,
+                              ),
+                              text: "👋🏻 Hello Dilshad, ",
+                              children: [
+                                TextSpan(
+                                  text: "Good Noon",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.w500,
+                                    fontStyle: FontStyle.italic,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          Image.asset(getWeatherImagePath(
-                              weather.weatherConditionCode!)),
+                          const SizedBox(height: 10),
+                          RichText(
+                            textAlign: TextAlign.center,
+                            text: const TextSpan(
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                fontStyle: FontStyle.italic,
+                              ),
+                              text: "Success requires work, not just words.\n",
+                              children: [
+                                TextSpan(
+                                  text: "~Vidal Sassoon",
+                                  style: TextStyle(
+                                    color: Colors.black87,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          // const Text(
+                          //   "Success requires work, not just words.\ ~Vidal Sassoon",
+                          //   textAlign: TextAlign.center,
+                          //   style: TextStyle(
+                          //     color: Colors.black,
+                          //     fontSize: 16,
+                          //     fontWeight: FontWeight.bold,
+                          //     fontStyle: FontStyle.italic,
+                          //   ),
+                          // ),
+                          Image.asset(
+                            getWeatherImagePath(weather.weatherConditionCode!),
+                            height: 320,
+                          ),
                           Align(
                             alignment: Alignment.center,
                             child: Column(

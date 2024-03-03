@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
       child: BlocProvider(
         create: (_) => WeatherBloc(RepoProvider(wf: WeatherFactory(apiKey))),
         child: MaterialApp(
-          title: 'Flutter Demo',
+          debugShowCheckedModeBanner: false,
+          title: 'Weather App',
           theme: ThemeData.dark(),
           home: const HomeScreen(),
         ),
